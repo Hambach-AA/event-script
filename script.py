@@ -20,7 +20,10 @@ async def event():
           else:
             file = open("text.txt","r")
             buf = json.load(file)
+            file.close()
             requests.post(url, json=json.dump(buf))
+            file = open("text.txt","w")
+            json.dump(add,file)
             file.close()
             index=0
 add=[]
